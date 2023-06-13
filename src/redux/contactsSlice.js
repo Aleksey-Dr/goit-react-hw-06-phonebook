@@ -13,8 +13,10 @@ const contactsSlice = createSlice({
         addContact(state, action) {
 
             let includesName = false;
-            contacts.map(contact => {
-                contact.name === state.contacts.name && (includesName = true);
+            state.contacts.map(contact => {
+                contact.name === action.payload.name && (includesName = true);
+                console.log(contact.name);
+                console.log(action.payload.name);
                 return includesName;
             });
 
@@ -34,7 +36,6 @@ const contactsSlice = createSlice({
     },
 });
 
-export const { addContact } = contactsSlice.actions;
-export const { deleteContact } = contactsSlice.actions;
+export const { addContact, deleteContact } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

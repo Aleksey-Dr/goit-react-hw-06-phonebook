@@ -33,3 +33,12 @@ VI. Refactoring <ContactForm> and <ContactsItem>
 1. Created a contactsSlice.js in the "redux" folder.
 2. Created an "addContact" metod in the contactsSlice.
 3. Created an "deleteContact" metod in the contactsSlice.
+
+VII. Refactoring <ContactList> and <App>
+1. Moved constants from <App> to <ContactList>.
+
+VIII. LocaleStorage
+1. "npm i redux-persist".
+2. Refactoring store.js.
+
+Fixed a check of "addContact" method.

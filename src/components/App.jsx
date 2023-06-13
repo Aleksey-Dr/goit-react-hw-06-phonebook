@@ -1,7 +1,3 @@
-import { useSelector } from 'react-redux';
-
-import { useEffect } from 'react';
-
 import ContactForm from './contactForm';
 import Filter from './filter';
 import ContactList from './contactList';
@@ -11,18 +7,11 @@ export const App = () => {
   //   return JSON.parse(window.localStorage.getItem('contacts')) ?? date
   // });
   
-  const filter = useSelector(state => state.filter.value);
-  const contacts = useSelector(state => state.contacts.contacts);
 
-  useEffect(() => {
-      window.localStorage.setItem('contacts', JSON.stringify(contacts));
-    }, [contacts]
-  );
-
-  const normalizedFilter = filter.toLowerCase();
-  const filterContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
+  // useEffect(() => {
+  //     window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  //   }, [contacts]
+  // );
 
   return (
     <div
@@ -33,15 +22,12 @@ export const App = () => {
       }}
     >
       <h2>Phonebook</h2>
-
       <ContactForm />
 
       <h3>Contacts</h3>
       <Filter />
 
-      <ContactList
-        filterContacts={filterContacts}
-      />
+      <ContactList />
     </div>
   );
 };
