@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { useState, useEffect } from 'react';
 import shortid from 'shortid';
 
@@ -10,8 +12,9 @@ import ContactList from './contactList';
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem('contacts')) ?? date
-});
-  const [filter, setFilter] = useState('');
+  });
+  
+  const filter = useSelector(state => state.filter.value);
 
   useEffect(() => {
       window.localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -40,8 +43,6 @@ export const App = () => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
 
-  const changeFilter = event => setFilter(event.currentTarget.value);
-
   const normalizedFilter = filter.toLowerCase();
   const filterContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
@@ -60,7 +61,7 @@ export const App = () => {
       <ContactForm onSubmit={addContact} />
 
       <h3>Contacts</h3>
-      <Filter value={filter} onChange={changeFilter} />
+      <Filter />
 
       <ContactList
         onDeleteContact={deleteContact}

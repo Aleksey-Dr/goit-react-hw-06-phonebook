@@ -19,3 +19,12 @@ III. Adding and configuring tools
 4. npm i shortid.
 
 IV. Copied all components from goit-react-hw-04-phonebook
+
+V. Refactoring <Filter>
+1. Created a "redux" folder in the "src" folder.
+2. Created a store.js to the "redux" folder.
+3. "npm i redux".
+4. "npm i react-redux".
+5. "npm install @reduxjs/toolkit react-redux".
+6. "npm i @redux-devtools/extension".
+7. Created a filterSlice.js in the "redux" folder.

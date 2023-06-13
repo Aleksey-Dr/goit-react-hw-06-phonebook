@@ -1,23 +1,27 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+
 import clsx from 'clsx';
 
 import css from './Filter.module.css';
 
-const Filter = ({ filter, onChange }) => {
+import { changeFilter } from '../../redux/filterSlice';
+
+const Filter = () => {
+
+    const despatch = useDispatch();
+    const filterValue = event => {
+        despatch(changeFilter(event.currentTarget.value));
+
+    };
+
     return (
         <label>Find contacts by name
             <input className={clsx(css['filter-input'])}
               type="text"
-              value={filter}
-              onChange={onChange}
+              onChange={filterValue}
             />
         </label>
     );
-};
-
-Filter.propTypes = {
-    filter: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
 };
 
 export default Filter;
