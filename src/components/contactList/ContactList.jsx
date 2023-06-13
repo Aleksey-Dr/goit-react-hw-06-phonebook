@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import ContactsItem from '../contactsItem';
 
-const ContactList = ({ filterContacts, onDeleteContact }) => {
+const ContactList = ({ filterContacts }) => {
   return (
     <div>
       <ul>
@@ -13,7 +13,6 @@ const ContactList = ({ filterContacts, onDeleteContact }) => {
               id={id}
               name={name}
               number={number}
-              onDeleteContact={onDeleteContact}
             />
           );
         })}
@@ -24,7 +23,6 @@ const ContactList = ({ filterContacts, onDeleteContact }) => {
 
 ContactList.propTypes = {
   filterContacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;

@@ -28,3 +28,8 @@ V. Refactoring <Filter>
 5. "npm install @reduxjs/toolkit react-redux".
 6. "npm i @redux-devtools/extension".
 7. Created a filterSlice.js in the "redux" folder.
+
+VI. Refactoring <ContactForm> and <ContactsItem>
+1. Created a contactsSlice.js in the "redux" folder.
+2. Created an "addContact" metod in the contactsSlice.
+3. Created an "deleteContact" metod in the contactsSlice.
